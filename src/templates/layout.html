@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sticky-footer-navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %}{% endblock head %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md" style="background-color: #fff; padding: 0px;">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-link">
+                <a href="./">
+                    <img src="{{ url_for('static', filename='images/lynx-logo.png') }}" alt='Lextran Logo'
+                        width="180px">
+                </a>
+            </li>
+            <li class="nav-link">
+                <div style="color: #cc0099;margin-left:0px;margin-top:10px;" class='font-weight-bold'>
+                    Service & Market<br>Assessment Dashboard
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <nav class="navbar navbar-expand-md  nav-bg-gray" style="padding:0;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    {%for i in range(0, length)%}
+                    <br>
+                    <li class="nav-item {{ 'active' if page == tabs[i]['name'] else '' }}">
+                        <a class="nav-link" href="{{tabs[i]['url']}}">{{tabs[i]["descriptive_name"]}}</a>
+                    </li>
+                    </br>
+                    {%endfor%}
+                </ul>
+            </div>
+        </nav>
+
+        <main style="margin-top: 10px;">
+            {% block body %}{% endblock body %}
+        </main>
+    </div>
+</body>
+
+<!-- Footer  -->
+<footer class="footer footer-copyright text-center">
+    <div class="d-inline-block">© 2022 | Nelson\Nygaard Consulting Associates</div>
+    <div class="d-inline-block float-right mr-1">
+        <span>Powered by</span>
+        <img src="{{ url_for('static', filename='images/nn-logo.png') }}" alt="CTG LOGO">
+    </div>
+</footer>
+<!-- Footer -->
+
+</html>
