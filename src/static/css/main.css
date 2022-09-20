@@ -13,6 +13,10 @@ body {
   height: 55px;
 }
 
+nav a:hover {
+  color: #FEC2EF;
+}
+
 .container {
   width: 80% !important;
   max-width: 1920px;
@@ -39,7 +43,7 @@ h2 {
 
 
 li.active * {
-  color: #0279b6;
+  color: #FEC2EF;
 }
 
 .container .row .col-6 {
