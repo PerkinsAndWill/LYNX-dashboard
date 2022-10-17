@@ -11,18 +11,22 @@
       {%for i in range(0, length)%}
       <div class=" col-6">
          <div class="row">
-            <div class=" col-2 text-right">
+            <div class=" col-3 text-right">
                <a class='main-a' href="{{tabs[i]['url']}}">
                   <img src="{{ url_for('static', filename='images/') }}{{ tabs[i]['image_name'] }}" alt=""
                      class="symbol-icon">
                </a>
             </div>
-            <div class="col-10">
+            <div class="col-9">
                <div class="card-body">
                   <h5 class="card-title font-weight-bold">
                      <a style="color: black; padding-top:20px;padding-left:10px;"
                         href="{{tabs[i]['url']}}">{{tabs[i]["descriptive_name"]}}</a>
                   </h5>
+                  <ul class='card-body'>
+                     <li>{{tabs[i]["subdescription_1"]}}</li>
+                     <li>{{tabs[i]["subdescription_2"]}}</li>
+                  </ul>
                </div>
             </div>
          </div>
